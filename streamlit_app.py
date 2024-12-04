@@ -42,7 +42,7 @@ if ing_list:
         st.write('The search value for ', each_ing,' is ', search_on, '.')
 
         st.subheader(each_ing + ' Nutrition Info')
-        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/"+each_ing)
+        smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/"+search_on)
         st.text(smoothiefroot_response.json())
         st_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
     if ing_string:
