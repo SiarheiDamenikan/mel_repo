@@ -33,9 +33,11 @@ if ing_list:
 
     for each_ing in ing_list:
         ing_string += each_ing + ' '
-
+        st.write("request from mysmoothies")
+        st.text(smoothiefroot_response.json())
+        st_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
     if ing_string:
-        st.write(ing_string);
+        st.write(ing_string)
         
     my_insert_stmt = """ insert into smoothies.public.orders(ingredients, name_on_order)
             values ('""" + ing_string + """','"""+name_on_order+"""')"""
@@ -48,7 +50,3 @@ if ing_list:
         if ing_string:
             session.sql(my_insert_stmt).collect()
             st.success('Your Smoothie is ordered!', icon="✅")
-
-st.write("request from mysmoothies")
-st.text(smoothiefroot_response.json())
-st_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
