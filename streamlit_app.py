@@ -1,6 +1,9 @@
 # Import python packages
 import streamlit as st
 from snowflake.snowpark.functions import col
+import requests
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+
 
 # Write directly to the app
 st.title("Example Streamlit App :apple:")
@@ -13,7 +16,8 @@ st.write(
 )
 
 # Get the current credentials
-
+st.write("request from mysmoothies")
+st.text(smoothiefroot_response,json)
 
 name_on_order = st.text_input('Name on Smoothie');
 st.write('test', name_on_order );
