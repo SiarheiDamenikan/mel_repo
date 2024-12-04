@@ -17,7 +17,7 @@ st.write(
 
 # Get the current credentials
 st.write("request from mysmoothies")
-st.text(smoothiefroot_response,json)
+st.text(smoothiefroot_response,json())
 
 name_on_order = st.text_input('Name on Smoothie');
 st.write('test', name_on_order );
