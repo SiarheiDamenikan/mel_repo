@@ -21,7 +21,7 @@ st.write('test', name_on_order );
 
 cnx = st.connection("snowflake")
 session = cnx.session()
-my_dataframe = session.table("smoothies.public.fruit_options").select (col("FRUIT_NAME"))
+my_dataframe = session.table("smoothies.public.fruit_options").select (col("FRUIT_NAME"),col("SERACH_ON"))
 #st.dataframe(data=my_dataframe, use_container_width=True)
 
 ing_list = st.multiselect('select fruit', my_dataframe, max_selections = 5)
