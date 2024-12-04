@@ -16,8 +16,6 @@ st.write(
 )
 
 # Get the current credentials
-st.write("request from mysmoothies")
-st.text(smoothiefroot_response,json())
 
 name_on_order = st.text_input('Name on Smoothie');
 st.write('test', name_on_order );
@@ -50,4 +48,7 @@ if ing_list:
         if ing_string:
             session.sql(my_insert_stmt).collect()
             st.success('Your Smoothie is ordered!', icon="✅")
-    
+
+st.write("request from mysmoothies")
+st.text(smoothiefroot_response.json())
+st_df = st.dataframe(data=smoothiefroot_response.json(), use_container_width=True)
